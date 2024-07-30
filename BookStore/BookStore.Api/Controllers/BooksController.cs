@@ -49,4 +49,12 @@ public class BooksController : ControllerBase
         var result = await mediator.Send(operation);
         return result;
     }
+    
+    [HttpDelete("{bookId}")]
+    public async Task<ApiResponse> Delete(int bookId)
+    {
+        var operation = new DeleteBookCommand(bookId);
+        var result = await mediator.Send(operation);
+        return result;
+    }
 }
